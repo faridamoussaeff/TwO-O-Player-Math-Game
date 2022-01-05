@@ -8,4 +8,4 @@ The game doesn’t end until one of the players loses all their lives. At this p
 
 ## Final product
 
-![terminal-display]('')
+![terminal-display]('https://github.com/faridamoussaeff/TwO-O-Player-Math-Game/blob/master/Doc/game-display.gif')
