@@ -10,5 +10,4 @@ class Player
     def remove_life
       @lives = @lives - 1
     end
-  
   end

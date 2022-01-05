@@ -12,4 +12,4 @@ class Question
       @input_one + @input_two
     end
   
-  end 
+  end
