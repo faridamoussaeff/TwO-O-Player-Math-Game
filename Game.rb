@@ -3,7 +3,7 @@ require "./Question"
 class Game
     @@question_instance = Question.new
 
-    attr_accessor :current_player, :current_opponent, :answer, :question
+    attr_accessor :current_player, :current_opponent, :answer, :question, :validation_response
   
     def initialize(current_player, current_opponent)
       @current_player = current_player
@@ -22,5 +22,12 @@ class Game
       @question = "Question for #{@current_player.user_id}: What is the sum of #{@@question_instance.input_one} and #{@@question_instance.input_two}?"
       @answer =  @@question_instance.calculate_answer
     end
-
+    def check_response(user_input)
+      if user_input != @answer
+        @current_player.remove_life
+        @validation_response = "#{current_player.user_id}, you are incorrect"
+      else
+        @validation_response = "#{current_player.user_id}, you are correct!"
+      end
+    end
 end 
