@@ -3,11 +3,12 @@ require "./Question"
 class Game
     @@question_instance = Question.new
 
-    attr_accessor :current_player, :current_opponent, :answer, :question, :validation_response
+    attr_accessor :current_player, :current_opponent, :answer, :question, :validation_response, :game_is_over
   
     def initialize(current_player, current_opponent)
       @current_player = current_player
       @current_opponent = current_opponent
+      @game_is_over = false
     end 
   
     def switch_players 
@@ -26,6 +27,9 @@ class Game
       if user_input != @answer
         @current_player.remove_life
         @validation_response = "#{current_player.user_id}, you are incorrect"
+        if @current_player.lives == 0
+          @@game_is_over = true
+        end
       else
         @validation_response = "#{current_player.user_id}, you are correct!"
       end
